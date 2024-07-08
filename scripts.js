@@ -17,9 +17,14 @@ function createGrid(size) {
 
         div.style.flex = `1 0 calc(100% / ${size})`;
         div.style.height = `calc(100% / ${size})`;
+        div.style.opacity = 0.1;
     
         div.addEventListener("mouseover", () => {
             div.style.backgroundColor = getRandomColor();
+            let currentOpacity = parseFloat(div.style.opacity);
+            if (currentOpacity < 1) {
+                div.style.opacity = currentOpacity + 0.1;
+            }
         });
         container.appendChild(div);
     }
